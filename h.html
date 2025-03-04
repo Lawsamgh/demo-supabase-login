@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(45deg, #0a0a0a, #3a4452);
+        overflow: hidden;
+      }
+
+      .login-container {
+        position: relative;
+        width: 400px;
+        background: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        transform: scale(0);
+        animation: scaleUp 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+      }
+
+      @keyframes scaleUp {
+        to {
+          transform: scale(1);
+        }
+      }
+
+      .login-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .login-header h1 {
+        font-size: 2em;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .login-header p {
+        color: #666;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-bottom: 2px solid #ddd;
+        outline: none;
+        font-size: 1em;
+        transition: 0.3s;
+      }
+
+      .input-group label {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+        pointer-events: none;
+        transition: 0.3s;
+      }
+
+      .input-group input:focus ~ label,
+      .input-group input:valid ~ label {
+        top: -5px;
+        font-size: 0.8em;
+        color: #3a4452;
+      }
+
+      .input-group input:focus,
+      .input-group input:valid {
+        border-color: #3a4452;
+      }
+
+      .input-group .underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #3a4452;
+        transition: 0.3s;
+      }
+
+      .input-group input:focus ~ .underline,
+      .input-group input:valid ~ .underline {
+        width: 100%;
+      }
+
+      .remember-forgot {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        font-size: 0.9em;
+      }
+
+      .remember-forgot a {
+        color: #3a4452;
+        text-decoration: none;
+      }
+
+      .remember-forgot a:hover {
+        text-decoration: underline;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 15px;
+        background: #3a4452;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .social-login {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .social-login p {
+        margin-bottom: 15px;
+        color: #666;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .social-icons a {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #666;
+        transition: 0.3s;
+      }
+
+      .social-icons a:hover {
+        background: #3a4452;
+        color: #fff;
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 480px) {
+        .login-container {
+          width: 90%;
+          padding: 30px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .social-icons {
+          flex-direction: column;
+        }
+
+        .social-icons a {
+          width: 100%;
+          border-radius: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-header">
+        <h1>Welcome Back</h1>
+        <p>Please login to continue</p>
+      </div>
+      <form id="loginForm">
+        <div class="input-group">
+          <input type="email" required />
+          <label>Email</label>
+          <span class="underline"></span>
+        </div>
+        <div class="input-group">
+          <input type="password" required />
+          <label>Password</label>
+          <span class="underline"></span>
+        </div>
+        <div class="remember-forgot">
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <div class="social-login">
+        <p>Or login with</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-google"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // Add your login logic here
+          alert("Login functionality would go here!");
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column; /* Allow stacking elements vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  min-height: 100vh; /* Full viewport height */
+  background: linear-gradient(45deg, #0a0a0a, #3a4452);
+  margin: 0; /* Remove default margin */
+}
+
+.navbar {
+  width: 100%; /* Full width for the navbar */
+  position: fixed; /* Fix the navbar to the top */
+  top: 0; /* Position at the top */
+  left: 0; /* Align to the left */
+  background: #fff; /* Background color for the navbar */
+  padding: 10px; /* Padding for the navbar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow */
+  z-index: 1000; /* Ensure navbar is above other content */
+}
+
+.login-container {
+  width: 600px; /* Fixed width for the login container */
+  background: #fff; /* Background color */
+  padding: 40px; /* Padding inside the container */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); /* Shadow for depth */
+  transform: scale(0); /* Initial scale for animation */
+  animation: scaleUp 0.3s ease-in-out forwards; /* Animation for scaling up */
+  margin-top: 80px; /* Adjust margin-top to clear the navbar height */
+}
+
+/* Keyframes for scaling up the container */
+@keyframes scaleUp {
+  to {
+    transform: scale(1); /* Scale to full size */
+  }
+}
+
+.login-container-notification {
+  position: relative;
+  width: 600px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes scaleUp {
+  to {
+    transform: scale(1);
+  }
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.login-header h1 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.login-header p {
+  color: #666;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  outline: none;
+  font-size: 1em;
+  transition: 0.3s;
+}
+
+.input-group label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+  top: -5px;
+  font-size: 0.8em;
+  color: #3a4452;
+}
+
+.input-group input:focus,
+.input-group input:valid {
+  border-color: #3a4452;
+}
+
+.input-group .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #3a4452;
+  transition: 0.3s;
+}
+
+.input-group input:focus ~ .underline,
+.input-group input:valid ~ .underline {
+  width: 100%;
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  font-size: 0.9em;
+}
+
+.remember-forgot a {
+  color: #3a4452;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px;
+  background: #3a4452;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-login {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.social-login p {
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #666;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: #3a4452;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 400px;
+    padding: 30px;
+  }
+  .f-size {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 360px) {
+  .social-icons {
+    flex-direction: column;
+  }
+
+  .social-icons a {
+    width: 100%;
+    border-radius: 30px;
+  }
+}
+
+.mt {
+  margin-top: 30px;
+}
+
+.f-size {
+  font-size: 36px;
+  font-weight: lighter;
+}
+.notification-but {
+  background-color: rgb(43, 112, 241);
+  color: #fff;
+  padding: 10px;
+  margin-top: 15px;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.Dashboard {
+  margin: 0;
+  top: 0;
+}
